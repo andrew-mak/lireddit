@@ -1,0 +1,22 @@
+query Comments($postId: Int!, $newestComId: Int, $cursor: String, $limit: Int!) {
+  comments(
+    postId: $postId
+    newestComId: $newestComId
+    cursor: $cursor
+    limit: $limit
+  ) {
+    hasMore
+    newestComId
+    comments {
+      id
+      text
+      creatorId
+      createdAt
+      postId
+      creator {
+        id
+        username
+      }
+    }
+  }
+}
